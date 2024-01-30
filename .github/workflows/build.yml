@@ -80,6 +80,12 @@ jobs:
         shell: bash
         run: |
           echo "/usr/local/opt/bison/bin:/opt/homebrew/opt/bison/bin" >> $GITHUB_PATH
+      - name: Print Variables
+        run: |
+          echo "cache-sysroot.outputs.cache-hit: ${{ steps.cache-sysroot.outputs.cache-hit }}"
+          echo "github.event.inputs.rebuild_sysroot: ${{ github.event.inputs.rebuild_sysroot }}"
+          echo "needs.configuration.outputs.runner: ${{ needs.configuration.outputs.runner }}"
+          echo "env.RUNNER_IMAGE: ${{ env.RUNNER_IMAGE }}"
       - name: Install Requirements
         if: (steps.cache-sysroot.outputs.cache-hit != 'true' || github.event.inputs.rebuild_sysroot == 'true') && needs.configuration.outputs.runner == env.RUNNER_IMAGE
         run: |
