@@ -24,7 +24,7 @@ on:
 
 env:
   BUILD_XCODE_PATH: /Applications/Xcode_14.1.app
-  RUNNER_IMAGE: macos12
+  RUNNER_IMAGE: macos-12
 
 jobs:
   configuration:
@@ -44,7 +44,7 @@ jobs:
         if [ "$IS_SELF_HOSTED_RUNNER" == "true" ]; then
           echo "runners=['self-hosted', 'macOS']" >> $GITHUB_OUTPUT
         else
-          echo "runners='$RUNNER_IMAGE'" >> $GITHUB_OUTPUT
+          echo "runners=$RUNNER_IMAGE" >> $GITHUB_OUTPUT
         fi
   build-sysroot:
     name: Build Sysroot
