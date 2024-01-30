@@ -24,7 +24,7 @@ on:
 
 env:
   BUILD_XCODE_PATH: /Applications/Xcode_14.1.app
-  RUNNER_IMAGE: macos-12
+  RUNNER_IMAGE: macos-latest
 
 jobs:
   configuration:
